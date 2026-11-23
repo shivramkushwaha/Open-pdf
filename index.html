@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A privacy-first open-source PDF reader and learning workspace.">
+  <title>Open PDF — Your document workspace</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">P</span> Open PDF</a>
+    <span class="tagline">Your documents. Your workspace.</span>
+  </header>
+  <main class="home">
+    <section class="hero">
+      <p class="eyebrow">OPEN-SOURCE PDF WORKSPACE</p>
+      <h1>Read beyond the page.</h1>
+      <p class="lead">Open a PDF to search, highlight, annotate, bookmark pages and build a question bank. Your document stays in this browser session.</p>
+      <label class="upload-card" for="pdfInput">
+        <span class="upload-icon">↑</span>
+        <strong>Choose a PDF</strong>
+        <span>Tap to select a file from your device</span>
+        <input id="pdfInput" type="file" accept="application/pdf,.pdf">
+      </label>
+      <p id="uploadStatus" class="muted" role="status"></p>
+    </section>
+    <section class="feature-grid" aria-label="Features">
+      <article><span>⌕</span><h2>Find</h2><p>Search text throughout your document.</p></article>
+      <article><span>▰</span><h2>Mark</h2><p>Highlight text and save personal notes.</p></article>
+      <article><span>◇</span><h2>Organize</h2><p>Bookmark pages and collect questions.</p></article>
+      <article><span>⌂</span><h2>Private by design</h2><p>Files are processed locally in your browser.</p></article>
+    </section>
+  </main>
+  <footer>Open PDF · Free and open-source starter project</footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

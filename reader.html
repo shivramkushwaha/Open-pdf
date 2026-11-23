@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF Reader — Open PDF</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/reader.css">
+  <!-- PDF.js is open source (Apache-2.0). CDN is used for this starter build. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    }
+  </script>
+</head>
+<body class="reader-body">
+  <header class="reader-header">
+    <a class="brand" href="index.html"><span class="brand-mark">P</span> Open PDF</a>
+    <div class="file-title" id="fileTitle">No document selected</div>
+    <label class="button secondary file-button">Open PDF<input id="replacePdf" type="file" accept="application/pdf,.pdf"></label>
+  </header>
+  <nav class="toolbar" aria-label="PDF tools">
+    <button id="prevPage" class="button secondary">←</button>
+    <span class="page-control"><input id="pageNumber" type="number" min="1" value="1"><span id="pageCount">/ 0</span></span>
+    <button id="nextPage" class="button secondary">→</button>
+    <button id="zoomOut" class="button secondary">−</button>
+    <span id="zoomLabel">100%</span>
+    <button id="zoomIn" class="button secondary">+</button>
+    <input id="searchInput" class="search-input" type="search" placeholder="Search in PDF…" aria-label="Search in PDF">
+    <button id="searchButton" class="button">Search</button>
+    <button id="bookmarkButton" class="button secondary">☆ Bookmark page</button>
+  </nav>
+  <main class="reader-layout">
+    <aside class="sidebar">
+      <div class="tabs">
+        <button class="tab active" data-panel="outlinePanel">Pages</button>
+        <button class="tab" data-panel="notesPanel">Notes</button>
+        <button class="tab" data-panel="questionsPanel">Questions</button>
+      </div>
+      <section id="outlinePanel" class="side-panel active">
+        <h2>Document pages</h2>
+        <p class="muted">Use the page controls above to navigate.</p>
+        <div id="bookmarksList"></div>
+      </section>
+      <section id="notesPanel" class="side-panel">
+        <h2>Personal notes</h2>
+        <textarea id="noteInput" rows="5" placeholder="Write a note for this page…"></textarea>
+        <button id="saveNote" class="button full">Save note</button>
+        <div id="notesList"></div>
+      </section>
+      <section id="questionsPanel" class="side-panel">
+        <h2>Question collection</h2>
+        <p class="muted">Select text in the PDF, then add it as a question.</p>
+        <textarea id="questionInput" rows="4" placeholder="Question text…"></textarea>
+        <button id="addQuestion" class="button full">Add question</button>
+        <div id="questionsList"></div>
+      </section>
+    </aside>
+    <section class="document-area">
+      <div id="message" class="empty-message">Choose a PDF from the home page or use “Open PDF”.</div>
+      <div id="pageContainer" class="page-container" hidden>
+        <canvas id="pdfCanvas"></canvas>
+        <div id="textLayer" class="textLayer"></div>
+      </div>
+      <div id="searchResults" class="search-results" aria-live="polite"></div>
+    </section>
+  </main>
+  <script src="assets/js/reader.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/annotations.js"></script>
+  <script src="assets/js/bookmarks.js"></script>
+  <script src="assets/js/questions.js"></script>
+</body>
+</html>
